@@ -15,7 +15,7 @@ const portfolioData = [
     id: 3,
     title: "Branding Project",
     subtitle: "Branding & Design",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop",
   },
   {
     id: 4,

@@ -1,44 +1,53 @@
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="flex flex-col bg-white rounded-2xl border border-gray-100 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 p-8 sm:p-10 h-full group">
+    <div className="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-400 p-7 sm:p-8 h-full relative overflow-hidden">
       
+      {/* Background Quote Decoration */}
+      <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+        <Quote size={60} className="text-[#0E6A4A]" />
+      </div>
+
+      {/* Top Accent Line */}
+      <div className="absolute top-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-t-xl" />
+
       {/* Stars */}
       <div className="flex gap-1">
         {Array.from({ length: testimonial.rating }).map((_, index) => (
-          <Star
-            key={index}
-            size={20}
-            className="text-[#F47C20] fill-[#F47C20]"
-          />
+          <Star key={index} size={18} className="text-amber-400 fill-amber-400" />
         ))}
       </div>
 
       {/* Quote */}
-      {/* Increased top margin, made text slightly darker and font slightly thicker for better readability */}
-      <p className="mt-6 text-base text-gray-700 font-medium leading-relaxed flex-grow">
+      <p className="mt-5 text-sm sm:text-base text-gray-600 leading-relaxed flex-grow relative z-10">
         "{testimonial.quote}"
       </p>
 
+      {/* Divider */}
+      <div className="mt-6 w-full h-px bg-gradient-to-r from-gray-100 to-transparent" />
+
       {/* Author */}
-      <div className="mt-8 flex items-center gap-4">
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          // Added a subtle hover scale effect to the profile image
-          className="w-12 h-12 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="flex flex-col">
-          <h4 className="text-base font-bold text-[#101828]">
+      <div className="mt-5 flex items-center gap-4">
+        <div className="relative">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-12 h-12 rounded-full object-cover shadow-md ring-2 ring-white group-hover:ring-[#D1DBD3] transition-all duration-300"
+          />
+          <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0E6A4A] border-2 border-white flex items-center justify-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-white" />
+          </span>
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0D1A12]">
             {testimonial.name}
           </h4>
-          <p className="text-sm text-gray-500 font-medium mt-0.5">
+          <p className="text-xs text-gray-400 font-medium mt-0.5">
             {testimonial.role}
           </p>
         </div>
       </div>
-      
     </div>
   );
 };

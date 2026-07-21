@@ -12,8 +12,8 @@ const NavLinks = ({ mobile = false, closeMenu }) => {
     <ul
       className={`${
         mobile
-          ? "flex flex-col gap-6"
-          : "flex items-center gap-12 xl:gap-14"
+          ? "flex flex-col gap-4"
+          : "flex items-center gap-6 xl:gap-8"
       }`}
     >
       {navLinks.map((item) => (
@@ -21,7 +21,7 @@ const NavLinks = ({ mobile = false, closeMenu }) => {
           <a
             href={item.href}
             onClick={closeMenu}
-            className="text-[17px] font-medium text-gray-800 hover:text-[#0E6A4A] transition"
+            className="text-[14px] font-bold text-gray-800 hover:text-[#0E6A4A] transition"
           >
             {item.title}
           </a>

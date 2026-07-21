@@ -13,47 +13,20 @@ function App() {
   return (
     <>
       <Navbar />
+      <main>
+        <Hero />
+        <Brands />
+        <Services />
+        <WhyChooseUs />
+        <Portfolio />
 
-      <Hero />
+        <div className="w-[100px] h-[100px] bg-transparent">
 
-      <Brands />
-      <div className="w-[100px] h-[70px]">
-
-
-      </div>
-      <Services />
-      <div className="w-[100px] h-[70px]">
-
-
-      </div>
-      <WhyChooseUs />
-      <div className="w-[100px] h-[70px]">
-
-
-      </div>
-      <Portfolio />
-      <div className="w-[100px] h-[80px]">
-
-
-      </div>
-      <Testimonials />
-      <div className="w-[100px] h-[80px]">
-
-
-      </div>
-
-      <FAQ />
-      <div className="w-[100px] h-[90px]">
-
-
-      </div>
-
-      <CTA />
-      <div className="w-[100px] h-[90px]">
-
-
-      </div>
-
+        </div>
+        <Testimonials />
+        <FAQ />
+        <CTA />
+      </main>
       <Footer />
     </>
   );

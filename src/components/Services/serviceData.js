@@ -5,7 +5,7 @@ import {
   MapPinned,
   Megaphone,
   PenTool,
-  BarChart3,
+  Cpu,
   Palette,
 } from "lucide-react";
 
@@ -13,57 +13,49 @@ const serviceData = [
   {
     id: 1,
     title: "Website Development",
-    description:
-      "Build fast, responsive and SEO-friendly websites that convert visitors into customers.",
+    description: "Modern, responsive websites that convert visitors into customers.",
     icon: Globe,
   },
   {
     id: 2,
     title: "SEO Services",
-    description:
-      "Improve your website rankings and drive organic traffic with advanced SEO strategies.",
+    description: "Rank higher, get more traffic and grow your business.",
     icon: Search,
   },
   {
     id: 3,
     title: "Google Ads",
-    description:
-      "Generate instant leads and maximize ROI with high-converting Google Ads campaigns.",
+    description: "High-converting ads that deliver maximum ROI.",
     icon: MousePointerClick,
   },
   {
     id: 4,
     title: "Meta Ads",
-    description:
-      "Reach your audience on Facebook & Instagram with precision-targeted ad campaigns.",
+    description: "Reach your audience and grow with Facebook & Instagram ads.",
     icon: Megaphone,
   },
   {
     id: 5,
-    title: "Advertising Solutions",
-    description:
-      "Comprehensive advertising strategies across multiple platforms for maximum reach.",
-    icon: BarChart3,
+    title: "AI Marketing Solutions",
+    description: "AI-powered marketing strategies for smart business growth.",
+    icon: Cpu,
   },
   {
     id: 6,
     title: "Branding & Design",
-    description:
-      "Create a memorable brand identity with professional design and strategy.",
+    description: "Build a strong brand identity that stands out.",
     icon: Palette,
   },
   {
     id: 7,
     title: "Graphic Design",
-    description:
-      "Stunning visuals that communicate your brand message effectively.",
+    description: "Creative designs that communicate your brand.",
     icon: PenTool,
   },
   {
     id: 8,
     title: "Content Creation",
-    description:
-      "Engaging content that builds trust, drives traffic and improves conversions.",
+    description: "Engaging content that attracts and converts.",
     icon: MapPinned,
   },
 ];

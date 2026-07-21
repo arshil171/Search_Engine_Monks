@@ -1,50 +1,59 @@
-import { Search, TrendingUp, BadgeCheck, BarChart3 } from "lucide-react";
+import { Search, TrendingUp, BadgeCheck, BarChart3, Zap } from "lucide-react";
 
 const FloatingCards = () => {
   return (
     <>
-      {/* SEO Score */}
-      <div className="hidden lg:flex absolute top-[10%] -left-4 xl:-left-8 bg-white rounded-xl shadow-lg border border-gray-50 p-3 items-center gap-3 z-20 animate-bounce-slow">
-        <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-          <Search className="text-[#0E6A4A] w-5 h-5" />
+      {/* SEO Score - Top Left */}
+      <div className="hidden md:flex absolute top-[8%] -left-6 xl:-left-14 glass-card rounded-2xl shadow-xl p-3.5 items-center gap-3 z-20 animate-float">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0E6A4A] to-[#1a9c6e] flex items-center justify-center shadow-md">
+          <Search className="text-white w-5 h-5" />
         </div>
         <div>
           <p className="text-xs text-gray-500 font-medium">SEO Score</p>
-          <h3 className="text-lg font-bold text-[#0E6A4A]">98%</h3>
+          <h3 className="text-xl font-extrabold text-[#0E6A4A]">98%</h3>
         </div>
       </div>
 
-      {/* Google Partner */}
-      <div className="hidden xl:flex absolute top-[5%] -right-4 bg-white rounded-xl shadow-lg border border-gray-50 p-3 items-center gap-3 z-20">
-        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-          <BadgeCheck className="text-blue-600 w-5 h-5" />
+      {/* Google Partner - Top Right */}
+      <div className="hidden xl:flex absolute top-[5%] -right-6 glass-card rounded-2xl shadow-xl p-3.5 items-center gap-3 z-20 animate-float-delayed">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
+          <BadgeCheck className="text-white w-5 h-5" />
         </div>
         <div>
           <p className="text-xs text-gray-500 font-medium">Google Partner</p>
-          <h3 className="text-sm font-bold">Certified</h3>
+          <h3 className="text-sm font-extrabold text-gray-800">Certified ✓</h3>
         </div>
       </div>
 
-      {/* Leads */}
-      <div className="hidden md:flex absolute bottom-[25%] -left-2 xl:-left-12 bg-white rounded-xl shadow-lg border border-gray-50 p-3 items-center gap-3 z-20">
-        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-          <BarChart3 className="text-indigo-600 w-5 h-5" />
+      {/* Leads - Bottom Left */}
+      <div className="hidden md:flex absolute bottom-[22%] -left-4 xl:-left-14 glass-card rounded-2xl shadow-xl p-3.5 items-center gap-3 z-20 animate-float" style={{ animationDelay: "1s" }}>
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-md">
+          <BarChart3 className="text-white w-5 h-5" />
         </div>
         <div>
-          <p className="text-xs text-gray-500 font-medium">Leads</p>
-          <h3 className="text-lg font-bold">18K+</h3>
+          <p className="text-xs text-gray-500 font-medium">Leads Generated</p>
+          <h3 className="text-xl font-extrabold text-gray-800">18K+</h3>
         </div>
       </div>
 
-      {/* Monthly Growth */}
-      <div className="hidden lg:flex absolute bottom-[10%] -right-4 xl:-right-10 bg-white rounded-xl shadow-lg border border-gray-50 p-3 items-center gap-3 z-20">
-        <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-          <TrendingUp className="text-[#F47C20] w-5 h-5" />
+      {/* Monthly Growth - Bottom Right */}
+      <div className="hidden lg:flex absolute bottom-[8%] -right-4 xl:-right-12 glass-card rounded-2xl shadow-xl p-3.5 items-center gap-3 z-20 animate-float-delayed" style={{ animationDelay: "0.5s" }}>
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#F47C20] to-[#e86910] flex items-center justify-center shadow-md">
+          <TrendingUp className="text-white w-5 h-5" />
         </div>
         <div>
           <p className="text-xs text-gray-500 font-medium">Monthly Growth</p>
-          <h3 className="text-lg font-bold">+240%</h3>
+          <h3 className="text-xl font-extrabold text-gray-800">+240%</h3>
         </div>
+      </div>
+
+      {/* Live Pulse - Middle Right */}
+      <div className="hidden xl:flex absolute top-[45%] -right-10 glass-card rounded-2xl shadow-lg p-3 items-center gap-3 z-20 animate-float" style={{ animationDelay: "1.5s" }}>
+        <div className="relative w-3 h-3">
+          <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
+          <span className="relative block w-3 h-3 rounded-full bg-green-500" />
+        </div>
+        <p className="text-xs font-bold text-gray-700 whitespace-nowrap">Live Campaigns</p>
       </div>
     </>
   );

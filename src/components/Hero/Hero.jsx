@@ -3,16 +3,26 @@ import HeroImage from "./HeroImage";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-white">
-      {/* Background Shape */}
-      <div className="absolute top-20 right-[-150px] w-[650px] h-[650px] rounded-full bg-[#EAF8F2] blur-3xl opacity-70 -z-10"></div>
+    <section
+      id="home"
+      className="relative bg-white overflow-hidden flex flex-col min-h-screen"
+      style={{ overflowX: "hidden" }}
+    >
+      {/* Soft background blobs — contained */}
+      <div className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#D1DBD3] opacity-50 blur-3xl -z-10" />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-orange-50 opacity-40 blur-3xl -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-[1800px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-screen pt-20 lg:pt-24 pb-16">
-          <HeroContent />
-          <HeroImage />
+      <div className="flex-grow w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row justify-around items-center gap-12 lg:gap-16 pb-24 lg:pb-32 pt-24 sm:pt-32 w-full">
+          <div className="w-full lg:w-[45%]">
+            <HeroContent />
+          </div>
+          <div className="w-full lg:w-[45%]">
+            <HeroImage />
+          </div>
         </div>
       </div>
+
     </section>
   );
 };

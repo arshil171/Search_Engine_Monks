@@ -1,26 +1,61 @@
-const ServiceCard = ({ service }) => {
+import { ArrowRight } from "lucide-react";
+
+const ServiceCard = ({ service, index }) => {
   const Icon = service.icon;
 
+  const lightBgs = [
+    "bg-[#D1DBD3] group-hover:bg-[#0E6A4A]",
+    "bg-blue-50 group-hover:bg-blue-500",
+    "bg-orange-50 group-hover:bg-[#F47C20]",
+    "bg-purple-50 group-hover:bg-purple-500",
+    "bg-rose-50 group-hover:bg-rose-500",
+    "bg-cyan-50 group-hover:bg-cyan-500",
+    "bg-amber-50 group-hover:bg-amber-500",
+    "bg-indigo-50 group-hover:bg-indigo-500",
+  ];
+
+  const textColors = [
+    "text-[#0E6A4A]",
+    "text-blue-500",
+    "text-[#F47C20]",
+    "text-purple-500",
+    "text-rose-500",
+    "text-cyan-500",
+    "text-amber-500",
+    "text-indigo-500",
+  ];
+
+  const colorIdx = index % 8;
+
   return (
-    <div className="group flex flex-col items-start p-3 sm:p-4 lg:p-5">
+    <div className="group relative flex flex-row items-start gap-4 bg-white rounded-xl border border-gray-100 p-5 sm:p-6 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+      {/* Hover Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      {/* Glow Effect */}
+      <div className="absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{ background: "linear-gradient(135deg, rgba(14,106,74,0.08), transparent)" }} />
+
       {/* Icon */}
-      <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0 mb-3 sm:mb-4">
-        <Icon
-          size={22}
-          className="text-[#0E6A4A] sm:w-6 sm:h-6 lg:w-7 lg:h-7"
-          strokeWidth={1.5}
-        />
+      <div className={`relative w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${lightBgs[colorIdx]}`}>
+        <Icon size={20} className={`transition-all duration-300 ${textColors[colorIdx]} group-hover:text-white`} strokeWidth={2} />
       </div>
 
-      {/* Title */}
-      <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#101828] leading-tight mb-1.5 sm:mb-2">
-        {service.title}
-      </h3>
+      {/* Content */}
+      <div className="flex flex-col relative">
+        {/* Title */}
+        <h3 className="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#0E6A4A] leading-snug mb-1.5 transition-colors duration-300 pr-4">
+          {service.title}
+        </h3>
 
-      {/* Description */}
-      <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
-        {service.description}
-      </p>
+        {/* Description */}
+        <p className="text-[13px] sm:text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+          {service.description}
+        </p>
+      </div>
+
+      {/* Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-b-xl" />
     </div>
   );
 };
