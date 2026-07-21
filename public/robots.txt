@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://searchenginemonks.com/sitemap.xml
