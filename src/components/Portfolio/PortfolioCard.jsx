@@ -1,39 +1,50 @@
-import { ExternalLink } from "lucide-react";
+import { MapPin, Clock, ArrowRight } from "lucide-react";
 
 const PortfolioCard = ({ project }) => {
   return (
-    <div className="group cursor-pointer flex flex-col h-full bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-400 overflow-hidden">
-      {/* Image Container */}
-      <div className="relative overflow-hidden w-full h-[200px] sm:h-[220px]">
+    <div className="group w-[500px] flex flex-col h-full bg-transparent gap-5 pb-4">
+      {/* Image Container with Custom Chamfered Shape */}
+      <div 
+        className="relative overflow-hidden  w-full h-[240px] sm:h-[260px] rounded-[32px] shadow-sm transition-all duration-500 group-hover:shadow-lg"
+        style={{ clipPath: "polygon(48px 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%, 0 48px)" }}
+      >
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
         />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D1A12]/80 via-[#0D1A12]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
-        {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-400 text-center">
-          <p className="text-white text-sm sm:text-base font-medium leading-relaxed">
-            View project details and results →
-          </p>
-          <button className="mt-5 min-w-[180px] flex justify-center items-center gap-3 bg-white text-[#0D1A12] text-base font-bold px-8 py-3.5 rounded-full hover:bg-[#F47C20] hover:text-white transition-all duration-300 shadow-xl hover:shadow-[#F47C20]/30 hover:-translate-y-0.5">
-            <ExternalLink size={18} />
-            <span>View Project</span>
-          </button>
-        </div>
+        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
       </div>
 
       {/* Text Content */}
-      <div className="p-6 flex flex-col items-center text-center justify-center flex-1 gap-2">
-        <h3 className="text-lg font-bold text-[#0D1A12] group-hover:text-[#0E6A4A] transition-colors duration-300">
+      <div className="flex flex-col flex-1 px-1 gap-3">
+        <h3 className="text-[19px] sm:text-xl font-bold text-[#0D1A12] leading-snug group-hover:text-[#F47C20] transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-500 font-medium">
+        
+        <p className="text-[14px] text-gray-600 font-medium leading-relaxed">
           {project.subtitle}
         </p>
+
+        {/* Metadata */}
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-2">
+          <div className="flex items-center gap-2 text-gray-500">
+            <MapPin size={16} strokeWidth={2} />
+            <span className="text-[13px] font-semibold">{project.location}</span>
+          </div>
+          <div className="flex items-center gap-2 text-gray-500">
+            <Clock size={16} strokeWidth={2} />
+            <span className="text-[13px] font-semibold">{project.date}</span>
+          </div>
+        </div>
+
+        {/* Action Link */}
+        <div className="mt-auto pt-3">
+          <button className="flex items-center gap-2 text-[#F47C20] font-bold text-[14px] group-hover:text-[#e0681b] transition-colors">
+            View More 
+            <ArrowRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+          </button>
+        </div>
       </div>
     </div>
   );

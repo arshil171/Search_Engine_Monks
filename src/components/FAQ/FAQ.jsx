@@ -99,6 +99,8 @@ const FAQ = () => {
           className="mt-16 sm:mt-20 w-full mx-auto flex flex-col items-center justify-center gap-6 p-8 sm:p-12 bg-gradient-to-br from-[#D1DBD3] to-[#F6FDF9] rounded-2xl border border-[#0E6A4A]/20 shadow-sm hover:shadow-md transition-shadow duration-300"
         >
           <div className="text-center max-w-2xl">
+            
+             <div className="h-[20px]"></div>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0D1A12]">Still have questions?</h3>
             <p className="text-gray-600 text-base sm:text-lg mt-3 leading-relaxed">Our team is ready to help you get the answers you need.</p>
           </div>
@@ -111,9 +113,12 @@ const FAQ = () => {
               Contact Support
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
+            
+            
           </div>
+          <div className="h-[20px]"></div>
         </motion.div>
-
+          
       </div>
     </section>
   );

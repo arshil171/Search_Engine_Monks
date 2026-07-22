@@ -28,34 +28,41 @@ const ServiceCard = ({ service, index }) => {
   const colorIdx = index % 8;
 
   return (
-    <div className="group relative flex flex-row items-start gap-4 bg-white rounded-xl border border-gray-100 p-5 sm:p-6 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+    <div className="group relative flex flex-col justify-center items-center text-center gap-4 bg-white rounded-xl border border-gray-100 p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[320px]">
       {/* Hover Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="h-[20px]"></div>
+      <div className="absolute  inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
       {/* Glow Effect */}
-      <div className="absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+      <div className="absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ background: "linear-gradient(135deg, rgba(14,106,74,0.08), transparent)" }} />
 
       {/* Icon */}
-      <div className={`relative w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center transition-all duration-300 ${lightBgs[colorIdx]}`}>
-        <Icon size={20} className={`transition-all duration-300 ${textColors[colorIdx]} group-hover:text-white`} strokeWidth={2} />
+      <div className={`relative w-16 h-16 flex-shrink-0 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2 ${lightBgs[colorIdx]}`}>
+        <Icon size={28} className={`transition-colors duration-300 ${textColors[colorIdx]} group-hover:text-white`} strokeWidth={2} />
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col relative">
+      {/* Content Container (Slides up on hover) */}
+      <div className="flex flex-col relative mt-2 flex-grow items-center transition-transform duration-500 group-hover:-translate-y-3">
         {/* Title */}
-        <h3 className="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#0E6A4A] leading-snug mb-1.5 transition-colors duration-300 pr-4">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#0E6A4A] leading-snug mb-3 transition-colors duration-300">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-[13px] sm:text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+        <p className="text-sm sm:text-base text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
           {service.description}
         </p>
       </div>
 
+      {/* Learn More Link (Slides up into view on hover) */}
+      <div className="absolute bottom-6 flex items-center gap-2 text-sm font-bold text-[#F47C20] opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+        <span>Learn More</span>
+        <ArrowRight size={18} className="transform transition-transform duration-500 group-hover:translate-x-1" strokeWidth={2.5} />
+      </div>
+
       {/* Bottom Accent Line */}
-      <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-b-xl" />
+      <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-b-xl" />
     </div>
   );
 };

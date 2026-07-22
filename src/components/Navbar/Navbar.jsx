@@ -89,11 +89,12 @@ const Navbar = () => {
                 780-904-2115
               </a>
 
-              <button className="bg-[#F47621] hover:bg-[#e0681b] text-white text-[15px] font-bold px-7 py-3 rounded-full flex items-center justify-center gap-3 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group">
-                <span>Book Free Consultation</span>
-                <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shadow-sm">
-                  <ArrowRight size={16} className="text-[#F47621]" strokeWidth={2.5} />
-                </div>
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group relative overflow-hidden bg-[#F47621] min-w-[220px] h-[45px] hover:bg-[#e0681b] text-white text-[15px] font-bold px-8 py-3.5 rounded-full flex items-center justify-center transition-all duration-300 shadow-[0_0_15px_rgba(244,118,33,0.3)] hover:shadow-[0_0_25px_rgba(244,118,33,0.6)] hover:-translate-y-1">
+                <span className="relative z-10">Book Free Consultation</span>
+                {/* Premium Shine Sweep Animation */}
+                <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[30deg] group-hover:left-[150%] transition-all duration-700 ease-in-out pointer-events-none" />
               </button>
             </div>
 
@@ -171,7 +172,10 @@ const Navbar = () => {
             780-904-2115
           </a>
           <button
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="bg-[#F47621] w-full hover:bg-[#e0681b] text-white font-bold py-3.5 rounded-full flex items-center justify-center gap-3 transition-colors duration-300 shadow-md group text-[15px]"
           >
             Book Free Consultation

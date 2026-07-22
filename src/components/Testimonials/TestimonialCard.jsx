@@ -1,53 +1,44 @@
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-400 p-7 sm:p-8 h-full relative overflow-hidden">
+    <div className="group w-[500px] relative flex flex-col items-center text-center bg-white border border-gray-100 rounded p-7 sm:p-8 h-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-2 transition-all duration-400 overflow-hidden w-full mx-auto" style={{ minWidth: "350px", maxWidth: "500px" }}>
       
-      {/* Background Quote Decoration */}
-      <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-        <Quote size={60} className="text-[#0E6A4A]" />
-      </div>
-
-      {/* Top Accent Line */}
-      <div className="absolute top-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-t-xl" />
-
-      {/* Stars */}
-      <div className="flex gap-1">
-        {Array.from({ length: testimonial.rating }).map((_, index) => (
-          <Star key={index} size={18} className="text-amber-400 fill-amber-400" />
-        ))}
-      </div>
-
-      {/* Quote */}
-      <p className="mt-5 text-sm sm:text-base text-gray-600 leading-relaxed flex-grow relative z-10">
-        "{testimonial.quote}"
-      </p>
-
-      {/* Divider */}
-      <div className="mt-6 w-full h-px bg-gradient-to-r from-gray-100 to-transparent" />
-
-      {/* Author */}
-      <div className="mt-5 flex items-center gap-4">
-        <div className="relative">
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-12 h-12 rounded-full object-cover shadow-md ring-2 ring-white group-hover:ring-[#D1DBD3] transition-all duration-300"
-          />
-          <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0E6A4A] border-2 border-white flex items-center justify-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-white" />
-          </span>
-        </div>
-        <div>
-          <h4 className="text-sm font-bold text-[#0D1A12]">
+      {/* Top Section: Author */}
+      <div className="flex flex-col items-center gap-3 mb-5 relative z-10"> 
+        <div className="h-[7px]"></div>
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          className="w-16 h-16 rounded-full object-cover shadow-sm bg-[#D1DBD3]"
+        />
+        <div className="flex flex-col items-center">
+          <h4 className="text-[16px] sm:text-[17px] font-bold text-[#0D1A12]">
             {testimonial.name}
           </h4>
-          <p className="text-xs text-gray-400 font-medium mt-0.5">
+          <p className="text-[13px] sm:text-sm text-gray-500 font-medium mt-0.5">
             {testimonial.role}
           </p>
         </div>
       </div>
+
+      {/* Divider */}
+      <div className="w-12 h-px bg-gray-200 mb-5 relative z-10" />
+     <div className="h-[7px]"></div>
+      {/* Stars */}
+      <div className="flex justify-center gap-1 mb-4 relative z-10">
+        {Array.from({ length: testimonial.rating }).map((_, index) => (
+          <Star key={index} size={18} className="text-orange-400 fill-orange-400" />
+        ))}
+      </div>
+
+      {/* Quote Text */}
+      <p className="text-[15px] sm:text-base text-gray-800 leading-relaxed font-semibold flex-grow text-center relative z-10 px-2">
+        "{testimonial.quote}"
+      </p>
+
+      {/* Subtle Overlay Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0E6A4A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
     </div>
   );
 };

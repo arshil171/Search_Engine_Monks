@@ -52,7 +52,10 @@ const HeroContent = () => {
         className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up"
         style={{ animationDelay: "0.4s" }}
       >
-        <button className="btn-primary text-base px-6 py-3.5 rounded-xl w-full sm:w-auto shadow-lg shadow-orange-500/25 group">
+        <button 
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="btn-primary text-base px-6 py-3.5 rounded-xl w-full sm:w-auto shadow-lg shadow-orange-500/25 group"
+        >
           Book Free Consultation
           <div className="bg-white rounded-full p-1 ml-1 group-hover:scale-110 transition-transform">
             <ChevronRight size={16} className="text-[#F47C20]" strokeWidth={3} />

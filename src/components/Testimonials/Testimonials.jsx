@@ -1,16 +1,21 @@
-import { useState } from "react";
 import TestimonialCard from "./TestimonialCard";
 import testimonialData from "./testimonialData";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+
+// Split data for two rows
+const row1 = testimonialData.slice(0, 4);
+const row2 = testimonialData.slice(4, 8);
+
+// Duplicate for seamless marquee (tripled to ensure it fills ultra-wide screens safely)
+const slider1 = [...row1, ...row1, ...row1]; 
+const slider2 = [...row2, ...row2, ...row2];
 
 const Testimonials = () => {
-  const [activeDot, setActiveDot] = useState(0);
-
   return (
-    <section className="relative w-full bg-[#fafcfb] py-20 lg:py-24 mt-16 lg:mt-24 overflow-hidden">
+    <section className="relative w-full bg-[#fafcfb] py-20 lg:py-24 mt-16 lg:mt-24 overflow-hidden border-y border-gray-100">
       <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
-
+         <div className="h-[20px]"></div>
         {/* ================= Header ================= */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
@@ -20,26 +25,21 @@ const Testimonials = () => {
           className="flex flex-col items-center text-center mb-16 sm:mb-20"
         >
           <span className="section-badge mb-4">
-            Client Testimonials
+            Client Feedback
           </span>
-            <div className="w-[100px] h-[30px] bg-transparent"></div>
-          <h2 className="text-[32px] md:text-[36px] font-extrabold text-[#1E293B] leading-tight">
-            What Our{" "}
-            <span className="gradient-text">Clients Say</span>
+          <div className="h-[20px]"></div>
+          <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#1E293B] leading-tight">
+            What Our Client Says About Us
           </h2>
-
-        
+         
           <div className="w-10 h-1.5 rounded-full bg-[#0E6A4A] mt-5 opacity-90" />
-            <div className="w-[100px] h-[30px] bg-transparent"></div>
-          <p className="mt-6 text-base md:text-lg text-gray-500 max-w-xl leading-relaxed">
-            Don't just take our word for it — hear from the businesses we've helped scale.
-          </p>
-          <div className="w-[100px] h-[20px] bg-transparent"></div>
+           <div className="h-[20px]"></div>
+           
           {/* Overall Rating */}
-          <div className="mt-8 h-[30px] w-[500px] max-w-[100%] flex justify-center items-center gap-3 bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 px-7 py-3.5">
+          <div className="mt-10 flex w-[600px] h-[30px] justify-center items-center gap-3 bg-white rounded border border-gray-100 shadow-sm px-7 py-3.5">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={18} className="text-amber-400 fill-amber-400" />
+                <Star key={i} size={18} className="text-orange-400 fill-orange-400" />
               ))}
             </div>
             <span className="text-gray-800 font-bold text-sm">4.9 out of 5</span>
@@ -47,64 +47,35 @@ const Testimonials = () => {
             <span className="text-gray-500 text-sm">Based on 500+ reviews</span>
           </div>
         </motion.div>
-       <div className="w-[100px] h-[20px] bg-transparent"></div>
-        {/* ================= Cards Grid ================= */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } }
-          }}
-          className="w-full mx-auto flex flex-wrap justify-around gap-y-8 gap-x-2"
-        >
-          {testimonialData.map((testimonial) => (
-            <motion.div 
-              key={testimonial.id}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-              }}
-              className="w-full md:w-[48%] lg:w-[48%] xl:w-[31%] h-full"
-            >
+        
+             <div className="h-[20px]"></div>
+      </div>
+
+      {/* ================= Sliders ================= */}
+      <div className="relative w-full flex flex-col gap-8 pb-10">
+        
+        {/* Fade edges for smooth scrolling effect */}
+        <div className="absolute left-0 top-0 h-full w-16 sm:w-48 bg-gradient-to-r from-[#fafcfb] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-16 sm:w-48 bg-gradient-to-l from-[#fafcfb] to-transparent z-10 pointer-events-none" />
+
+        {/* Slider 1 */}
+        <div className="flex gap-8 animate-marquee hover:[animation-play-state:paused]" style={{ width: "max-content", animationDuration: "40s" }}>
+          {slider1.map((testimonial, idx) => (
+            <div key={`s1-${idx}`} className="w-[350px] sm:w-[450px]">
               <TestimonialCard testimonial={testimonial} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* ================= Navigation Dots + Arrows ================= */}
-          <div className="w-[100px] h-[20px] bg-transparent"></div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="flex items-center justify-center gap-6 mt-16 sm:mt-20"
-        >
-          <button className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-[#0E6A4A] hover:bg-[#D1DBD3] hover:text-[#0E6A4A] transition-all duration-300 group shadow-sm hover:shadow-md">
-            <ChevronLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
-          </button>
+        {/* Slider 2 (Different speed for staggered effect) */}
+        <div className="flex gap-8 animate-marquee hover:[animation-play-state:paused]" style={{ width: "max-content", animationDuration: "50s" }}>
+          {slider2.map((testimonial, idx) => (
+            <div key={`s2-${idx}`} className="w-[350px] sm:w-[450px]">
+              <TestimonialCard testimonial={testimonial} />
+            </div>
+          ))}
+        </div>
 
-          <div className="flex items-center gap-2.5">
-            {[0, 1, 2].map((i) => (
-              <button
-                key={i}
-                onClick={() => setActiveDot(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  activeDot === i
-                    ? "w-10 h-3 bg-[#0E6A4A]"
-                    : "w-3 h-3 bg-gray-200 hover:bg-[#0E6A4A]"
-                }`}
-              />
-            ))}
-          </div>
-
-          <button className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-[#0E6A4A] hover:bg-[#D1DBD3] hover:text-[#0E6A4A] transition-all duration-300 group shadow-sm hover:shadow-md">
-            <ChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </motion.div>
-        <div className="w-[100px] h-[20px] bg-transparent"></div>
       </div>
     </section>
   );

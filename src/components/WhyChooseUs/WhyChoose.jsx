@@ -68,8 +68,8 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Floating Badge - Experience */}
-              <div className="absolute -bottom-5 -right-4 sm:-right-8 glass-card rounded-2xl shadow-xl p-4 flex items-center gap-3 animate-float">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F47C20] to-orange-500 flex items-center justify-center shadow-md">
+              <div className="absolute -bottom-5 -right-4 sm:-right-8 glass-card rounded- shadow-xl p-4 flex items-center gap-3 animate-float">
+                <div className="w-12 h-12 rounded bg-gradient-to-br from-[#F47C20] to-orange-500 flex items-center justify-center shadow-md">
                   <Award className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -79,8 +79,8 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Floating Badge - Partners */}
-              <div className="absolute -top-4 -left-2 sm:-left-8 glass-card rounded-2xl shadow-xl p-4 flex items-center gap-3 animate-float-delayed">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0E6A4A] to-[#1a9c6e] flex items-center justify-center shadow-md">
+              <div className="absolute -top-4 -left-6 sm:-left-4 glass-card rounded shadow-xl p-4 flex items-center gap-3 animate-float-delayed">
+                <div className="w-12 h-12 rounded bg-gradient-to-br from-[#0E6A4A] to-[#1a9c6e] flex items-center justify-center shadow-md">
                   <CheckCircle2 className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -96,17 +96,17 @@ const WhyChooseUs = () => {
             <span className="section-badge mb-5 self-start">
               Why Choose Us
             </span>
-
+            <div className="w-full h-[10px]"></div>
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0D1A12] leading-tight">
               Why Choose{" "}
               <span className="gradient-text">Search Engine Monks?</span>
             </h2>
-
+            <div className="w-full h-[10px]"></div>
             <p className="mt-4 text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl">
               We don't just run campaigns — we build long-term growth engines
               that compound over time and deliver measurable ROI.
             </p>
-
+              <div className="w-full h-[10px]"></div>
             {/* Feature Cards */}
             <motion.div
               initial="hidden"
