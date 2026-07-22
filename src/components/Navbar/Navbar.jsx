@@ -38,7 +38,7 @@ const Navbar = () => {
           : "bg-white"
           }`}
       >
-        <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
+        <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
           <div className="h-[60px] lg:h-[72px] flex items-center justify-around">
 
             {/* Logo */}

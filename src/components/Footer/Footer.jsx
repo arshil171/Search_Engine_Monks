@@ -64,7 +64,7 @@ const Footer = () => {
     <footer className="bg-[#1C1D20] text-white overflow-hidden relative">
       <div className="h-[30px]"></div>
       {/* Massive CTA Section */}
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-32 lg:pt-48 pb-24 lg:pb-32 border-b border-white/10 text-center relative z-10">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 pt-32 lg:pt-48 pb-24 lg:pb-32 border-b border-white/10 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const Footer = () => {
       </div>
       <div className="h-[30px]"></div>
       {/* Main Footer Grid */}
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 py-24 lg:py-32">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 py-24 lg:py-32">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -201,7 +201,7 @@ const Footer = () => {
         transition={{ delay: 0.6, duration: 1 }}
         className="border-t border-white/10"
       >
-        <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm font-medium text-center sm:text-left">
             © {new Date().getFullYear()} Search Engine Monks. All Rights Reserved.
           </p>

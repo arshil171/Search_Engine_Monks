@@ -9,7 +9,7 @@ const Services = () => {
       id="services"
       className="relative w-full bg-white py-20 pb-32 lg:py-24 lg:pb-40 overflow-hidden"
     >
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* ================= Heading ================= */}
 

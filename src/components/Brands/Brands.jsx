@@ -61,7 +61,7 @@ const allLogos = [...logos, ...logos];
 const Brands = () => {
   return (
     <section className="w-full bg-gradient-to-b from-[#F8FFFE] to-white section-padding overflow-hidden">
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
@@ -106,7 +106,7 @@ const Brands = () => {
       </div>
         <div className="h-[20px]"></div>
       {/* Bottom Stats Bar */}
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 mt-18 lg:mt-20 pb-16 lg:pb-24">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 mt-18 lg:mt-20 pb-16 lg:pb-24">
         
         <div className="w-full flex flex-wrap justify-around gap-y-6 gap-x-2">
           {[

@@ -15,6 +15,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <div className="w-[100px] h-[100px] bg-transparent"></div>
         <Brands />
         <Services />
         <WhyChooseUs />

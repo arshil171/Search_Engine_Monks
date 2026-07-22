@@ -40,7 +40,7 @@ const CTA = () => {
 
   return (
     <section id="contact" className="w-full section-padding bg-gradient-to-b from-[#F8FFFE] to-white">
-      <div className="w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* Main Flex Layout: 3 Columns on large screens */}
         <div className="flex flex-col lg:flex-row justify-around gap-8 items-stretch w-full">

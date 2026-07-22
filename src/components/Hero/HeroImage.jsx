@@ -2,7 +2,7 @@ import FloatingCards from "./FloatingCards";
 
 const HeroImage = () => {
   return (
-    <div className="relative flex items-center justify-center w-full mt-12 lg:mt-0 px-6 sm:px-8 lg:px-4">
+    <div className="relative flex items-center justify-center w-full aspect-square max-h-[500px] mt-10 lg:mt-0 px-6 sm:px-8 lg:px-4">
 
       {/* Outer Glow Ring */}
       <div className="absolute w-[90%] sm:w-[85%] aspect-square max-w-[560px] rounded-full border-2 border-dashed border-[#0E6A4A]/15 animate-spin-slow" />
