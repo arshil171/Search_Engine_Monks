@@ -61,7 +61,7 @@ const allLogos = [...logos, ...logos];
 const Brands = () => {
   return (
     <section className="w-full bg-gradient-to-b from-[#F8FFFE] to-white section-padding overflow-hidden">
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">

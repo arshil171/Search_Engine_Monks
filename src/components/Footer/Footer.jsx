@@ -64,7 +64,7 @@ const Footer = () => {
     <footer className="bg-[#1C1D20] text-white overflow-hidden relative">
       <div className="h-[30px]"></div>
       {/* Massive CTA Section */}
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 pt-32 lg:pt-48 pb-24 lg:pb-32 border-b border-white/10 text-center relative z-10">
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 pt-32 lg:pt-48 pb-24 lg:pb-32 border-b border-white/10 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const Footer = () => {
           className="flex flex-col lg:flex-row w-full border-white/10"
         >
           {/* Left Side: Brand & Newsletter */}
-          <motion.div variants={itemVariants} className="w-full lg:w-5/12 flex flex-col items-center text-center lg:border-r border-white/10 px-4 py-8 lg:py-0">
+          <motion.div variants={itemVariants} className="w-full lg:w-4/12 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-white/10 px-4 lg:pr-10 py-8 lg:py-0">
             <div className="flex flex-col items-center gap-4 mb-6">
               <img
                 src="https://searchenginemonks.com/wp-content/uploads/2022/12/Group-33831.svg"
@@ -109,12 +109,12 @@ const Footer = () => {
                 <span className="text-[10px] uppercase tracking-[1px] text-gray-400">Digital Marketing & AI Solutions</span>
               </div>
             </div>
-            <div className="h-[5px]"></div>
+            <div className="h-[15px]"></div>
             <p className="text-lg leading-relaxed text-gray-400 mb-14 max-w-md">
               We help businesses grow with smart digital marketing, creative
               design, and AI-powered solutions.
             </p>
-            <div className="h-[5px]"></div>
+            <div className="h-[15px]"></div>
 
             <div className="w-full max-w-md mb-14">
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-6">Subscribe to our newsletter</h4>
@@ -129,7 +129,7 @@ const Footer = () => {
                 </button>
               </div>
             </div>
-            <div className="h-[10px]"></div>
+            <div className="h-[15px]"></div>
             {/* Social Links */}
             <div className="flex justify-center gap-4">
               {socialLinks.map((item, index) => (
@@ -143,50 +143,67 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+            <div className="h-[10px]"></div>
           </motion.div>
-
+          
+           <div className="h-[5px]"></div>
+           
           {/* Right Side: Links */}
-          <motion.div variants={itemVariants} className="w-full lg:w-7/12 flex flex-col sm:flex-row">
+          <motion.div variants={itemVariants} className="w-full lg:w-8/12 flex flex-col sm:flex-row">
+          <div className="h-[10px]"></div>
             {/* Services */}
-            <div className="flex-1 flex flex-col items-center text-center sm:border-r border-white/10 px-4 py-8 lg:py-0">
+            <div className="flex-1 flex flex-col items-center text-center border-b sm:border-b-0 sm:border-r border-white/10 px-4 lg:px-8 py-8 lg:py-0">
               <h3 className="text-lg font-bold text-white mb-5 uppercase tracking-wider">Services</h3>
               <ul className="flex flex-col items-center gap-3">
                 {services.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-base text-gray-400 hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
+                    <a href="#" className="text-base text-[#A3B1AA] hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
                       {item}
                     </a>
                   </li>
                 ))}
               </ul>
+              <div className="h-[10px]"></div>
             </div>
-
+            <div className="h-[10px]"></div>
             {/* Quick Links */}
-            <div className="flex-1 flex flex-col items-center text-center sm:border-r border-white/10 px-4 py-8 lg:py-0">
+            <div className="flex-1 flex flex-col items-center text-center border-b sm:border-b-0 sm:border-r border-white/10 px-4 lg:px-8 py-8 lg:py-0">
               <h3 className="text-lg font-bold text-white mb-5 uppercase tracking-wider">Quick Links</h3>
               <ul className="flex flex-col items-center gap-3">
                 {quickLinks.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-base text-gray-400 hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
+                    <a href="#" className="text-base text-[#A3B1AA] hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
                       {item}
                     </a>
                   </li>
                 ))}
               </ul>
+              <div className="h-[10px]"></div>
             </div>
-
+               <div className="h-[10px]"></div>
             {/* Resources */}
-            <div className="flex-1 flex flex-col items-center text-center px-4 py-8 lg:py-0">
+            <div className="flex-1 flex flex-col items-center text-center px-4 lg:px-8 py-8 lg:py-0">
               <h3 className="text-lg font-bold text-white mb-5 uppercase tracking-wider">Resources</h3>
               <ul className="flex flex-col items-center gap-3">
                 {resources.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-base text-gray-400 hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
+                    <a href="#" className="text-base text-[#A3B1AA] hover:text-[#E87A24] hover:-translate-y-1 transition-all duration-300 inline-block">
                       {item}
                     </a>
                   </li>
                 ))}
               </ul>
+              <div className="h-[40px]"></div>
+              <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Get the App</h3>
+              <div className="flex flex-col gap-3 w-[140px] items-center">
+                <a href="#" className="hover:-translate-y-1 transition-transform duration-300 opacity-90 hover:opacity-100">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="w-full h-auto" />
+                </a>
+                <a href="#" className="hover:-translate-y-1 transition-transform duration-300 opacity-90 hover:opacity-100">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="w-full h-auto" />
+                </a>
+              </div>
+              <div className="h-[10px]"></div>
             </div>
           </motion.div>
 

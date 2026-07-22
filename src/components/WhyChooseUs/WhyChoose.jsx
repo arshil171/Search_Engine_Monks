@@ -48,7 +48,7 @@ const features = [
 const WhyChooseUs = () => {
   return (
     <section id="about" className="w-full section-padding bg-white overflow-hidden">
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex flex-col lg:flex-row justify-around gap-12 lg:gap-16 xl:gap-20 items-center w-full">
 
           {/* Left Side - Image */}

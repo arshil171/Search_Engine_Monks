@@ -17,7 +17,7 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="relative w-full bg-white py-20 lg:py-24 overflow-hidden">
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
         <div className="w-[100px] h-[50px]"></div>
         {/* ================= Header ================= */}
         <motion.div

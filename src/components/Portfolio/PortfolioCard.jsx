@@ -2,7 +2,7 @@ import { MapPin, Clock, ArrowRight } from "lucide-react";
 
 const PortfolioCard = ({ project }) => {
   return (
-    <div className="group w-[500px] flex flex-col h-full bg-transparent gap-5 pb-4">
+    <div className="group w-full max-w-[500px] flex flex-col h-full bg-transparent gap-5 pb-4">
       {/* Image Container with Custom Chamfered Shape */}
       <div 
         className="relative overflow-hidden  w-full h-[240px] sm:h-[260px] rounded-[32px] shadow-sm transition-all duration-500 group-hover:shadow-lg"

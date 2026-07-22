@@ -38,7 +38,7 @@ const Navbar = () => {
           : "bg-white"
           }`}
       >
-        <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+        <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
           <div className="h-[60px] lg:h-[72px] flex items-center justify-around">
 
             {/* Logo */}
@@ -137,25 +137,24 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Drawer Nav Links */}
-        <nav className="flex-1 p-6 overflow-y-auto">
-          <ul className="flex flex-col gap-3">
+        <nav className="flex-1 p-6 overflow-y-auto flex flex-col justify-center">
+          <ul className="flex flex-col justify-evenly h-full gap-4">
             {navLinks.map((item) => (
               <li key={item.id}>
                 <a
                   href={item.href}
                   onClick={() => { setActiveLink(item.title); setOpen(false); }}
-                  className={`flex items-center justify-between px-5 py-4 rounded-xl text-lg font-bold transition-all duration-300 ${activeLink === item.title
+                  className={`flex items-center justify-center h-[50px] w-full rounded-xl text-xl font-bold transition-all duration-300 ${activeLink === item.title
                     ? "text-[#0E6A4A] bg-[#D1DBD3]"
                     : "text-gray-700 hover:text-[#0E6A4A] hover:bg-gray-50"
                     }`}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-center gap-3">
                     <span className={`w-2 h-2 rounded-full transition-all duration-300 ${activeLink === item.title ? "bg-[#0E6A4A] scale-125" : "bg-gray-300"
                       }`} />
                     {item.title}
+                    {item.hasDropdown && <ChevronDown size={18} strokeWidth={2.5} />}
                   </div>
-                  {item.hasDropdown && <ChevronDown size={18} strokeWidth={2.5} />}
                 </a>
               </li>
             ))}
@@ -166,7 +165,7 @@ const Navbar = () => {
         <div className="p-6 pb-8 border-t border-gray-100 flex flex-col items-center justify-center gap-4 bg-gray-50/50 w-full">
           <a
             href="tel:7809042115"
-            className="flex items-center w-full justify-center gap-2 text-[#0E6A4A] font-bold text-[15px] py-3.5 rounded-full border-2 border-[#0E6A4A]/20 hover:bg-[#D1DBD3] transition-all duration-300 bg-white"
+            className="flex items-center w-full justify-center gap-2 text-[#0E6A4A] font-bold text-[15px] h-[50px] rounded-full border-2 border-[#0E6A4A]/20 hover:bg-[#D1DBD3] transition-all duration-300 bg-white"
           >
             <Phone size={18} strokeWidth={2.5} />
             780-904-2115
@@ -176,7 +175,7 @@ const Navbar = () => {
               setOpen(false);
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-[#F47621] w-full hover:bg-[#e0681b] text-white font-bold py-3.5 rounded-full flex items-center justify-center gap-3 transition-colors duration-300 shadow-md group text-[15px]"
+            className="bg-[#F47621] w-full hover:bg-[#e0681b] text-white font-bold h-[50px] rounded-full flex items-center justify-center gap-3 transition-colors duration-300 shadow-md group text-[15px]"
           >
             Book Free Consultation
             <ArrowRight size={18} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />

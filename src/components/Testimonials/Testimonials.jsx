@@ -14,7 +14,7 @@ const slider2 = [...row2, ...row2, ...row2];
 const Testimonials = () => {
   return (
     <section className="relative w-full bg-[#fafcfb] py-20 lg:py-24 mt-16 lg:mt-24 overflow-hidden border-y border-gray-100">
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
          <div className="h-[20px]"></div>
         {/* ================= Header ================= */}
         <motion.div

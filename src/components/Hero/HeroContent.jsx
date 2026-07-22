@@ -3,7 +3,7 @@ import { ArrowRight, ChevronRight, Search, Layout, Megaphone, Share2 } from "luc
 const HeroContent = () => {
   return (
     <div className="w-full flex flex-col justify-center py-4 text-left gap-8 lg:gap-10">
-         <div className="h-[7px]"></div>
+         <div className="h-[50px]"></div>
       {/* Animated Badge */}
       <div className="flex items-center gap-2">
         <div className="section-badge animate-fade-in-up shadow-sm">
