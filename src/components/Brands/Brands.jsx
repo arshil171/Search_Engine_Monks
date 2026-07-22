@@ -13,7 +13,7 @@ const Counter = ({ end, duration = 2.5 }) => {
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / (duration * 1000), 1);
-      
+
       // Easing out function for smooth finish
       const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
       setCount(Math.floor(easeOutQuart * end));
@@ -73,12 +73,12 @@ const Brands = () => {
             Trusted By Amazing{" "}
             <span className="gradient-text">Brands</span>
           </h2>
-           <div className="h-[20px]"></div>
+          <div className="h-[20px]"></div>
           <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed max-w-2xl">
             Helping businesses grow through SEO, PPC, Website Development and
             Digital Marketing solutions that deliver measurable results.
           </p>
-           <div className="h-[20px]"></div>
+          <div className="h-[20px]"></div>
         </div>
 
       </div>
@@ -104,10 +104,10 @@ const Brands = () => {
           ))}
         </div>
       </div>
-        <div className="h-[20px]"></div>
+      <div className="h-[20px]"></div>
       {/* Bottom Stats Bar */}
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 mt-18 lg:mt-20 pb-16 lg:pb-24">
-        
+      <div className=" w-full mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 mt-18 lg:mt-20 pb-16 lg:pb-24">
+
         <div className="w-full flex flex-wrap justify-around gap-y-6 gap-x-2">
           {[
             { prefix: "", end: 350, suffix: "%", label: "Avg. Traffic Growth" },
