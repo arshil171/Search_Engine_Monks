@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service, index }) => {
   const Icon = service.icon;
@@ -28,10 +29,10 @@ const ServiceCard = ({ service, index }) => {
   const colorIdx = index % 8;
 
   return (
-    <div className="group relative flex flex-col justify-center items-center text-center gap-4 bg-white rounded-xl border border-gray-100 p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[320px]">
+    <Link to={`/services/${service.slug}`} className="group relative flex flex-col justify-center items-center text-center gap-4 bg-white rounded-xl border border-gray-100 p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden min-h-[320px] block">
       {/* Hover Background */}
       <div className="h-[20px]"></div>
-      <div className="absolute  inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
       {/* Glow Effect */}
       <div className="absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -63,7 +64,7 @@ const ServiceCard = ({ service, index }) => {
 
       {/* Bottom Accent Line */}
       <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#0E6A4A] to-[#F47C20] transition-all duration-500 rounded-b-xl" />
-    </div>
+    </Link>
   );
 };
 

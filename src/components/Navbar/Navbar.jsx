@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, Phone, X, ChevronDown, ArrowRight } from "lucide-react";
+import serviceData from "../../components/Services/serviceData";
 
 const navLinks = [
-  { id: 1, title: "Home", href: "#home" },
-  { id: 2, title: "Services", href: "#services", hasDropdown: true },
-  { id: 3, title: "Portfolio", href: "#portfolio" },
-  { id: 4, title: "About Us", href: "#about" },
-  { id: 5, title: "Resources", href: "#resources", hasDropdown: true },
-  { id: 6, title: "Contact", href: "#contact" },
+  { id: 1, title: "Home", href: "/", isRoute: true },
+  { id: 2, title: "Services", href: "/services", hasDropdown: true, isRoute: true },
+  { id: 3, title: "Portfolio", href: "/#portfolio", isRoute: false },
+  { id: 4, title: "About Us", href: "/#about", isRoute: false },
+  { id: 5, title: "Resources", href: "/#resources", hasDropdown: true, isRoute: false },
+  { id: 6, title: "Contact", href: "/#contact", isRoute: false },
 ];
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
   const [activeLink, setActiveLink] = useState("Home");
+
+  useEffect(() => {
+    // Automatically set active link based on current path
+    if (location.pathname === "/services") {
+      setActiveLink("Services");
+    } else {
+      setActiveLink("Home");
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,36 +54,77 @@ const Navbar = () => {
           <div className="h-[60px] lg:h-[72px] flex items-center justify-around">
 
             {/* Logo */}
-            <a href="#home" className="flex w-auto lg:w-[400px] justify-start lg:justify-center items-center flex-shrink-0 group">
+            <Link to="/" className="flex w-auto lg:w-[400px] justify-start lg:justify-center items-center flex-shrink-0 group">
               <img
                 src="https://searchenginemonks.com/wp-content/uploads/2022/12/Group-33831.svg"
                 alt="Search Engine Monks"
                 className="h-[56px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-            </a>
+            </Link>
 
             {/* Desktop Nav Links */}
             <nav className="hidden lg:flex flex-1 justify-center px-4">
               <ul className="flex items-center gap-6 xl:gap-8">
                 {navLinks.map((item) => (
                   <li key={item.id} className="relative group">
-                    <a
-                      href={item.href}
-                      onClick={() => setActiveLink(item.title)}
-                      className={`flex items-center gap-1 py-2 text-[14px] font-bold transition-colors duration-300 ${activeLink === item.title
-                        ? "text-[#0E6A4A]"
-                        : "text-gray-800 hover:text-[#0E6A4A]"
-                        }`}
-                    >
-                      {item.title}
-                      {item.hasDropdown && (
-                        <ChevronDown size={14} strokeWidth={2.5} className="mt-0.5 transition-transform group-hover:rotate-180" />
-                      )}
-                    </a>
+                    {item.isRoute ? (
+                      <Link
+                        to={item.href}
+                        onClick={() => setActiveLink(item.title)}
+                        className={`flex items-center gap-1 py-2 text-[14px] font-bold transition-colors duration-300 ${activeLink === item.title
+                          ? "text-[#0E6A4A]"
+                          : "text-gray-800 hover:text-[#0E6A4A]"
+                          }`}
+                      >
+                        {item.title}
+                        {item.hasDropdown && (
+                          <ChevronDown size={14} strokeWidth={2.5} className="mt-0.5 transition-transform group-hover:rotate-180" />
+                        )}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        onClick={() => setActiveLink(item.title)}
+                        className={`flex items-center gap-1 py-2 text-[14px] font-bold transition-colors duration-300 ${activeLink === item.title
+                          ? "text-[#0E6A4A]"
+                          : "text-gray-800 hover:text-[#0E6A4A]"
+                          }`}
+                      >
+                        {item.title}
+                        {item.hasDropdown && (
+                          <ChevronDown size={14} strokeWidth={2.5} className="mt-0.5 transition-transform group-hover:rotate-180" />
+                        )}
+                      </a>
+                    )}
                     {/* Active Indicator Underline */}
                     <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-transparent flex justify-center">
                       <span className={`h-full rounded-t-full transition-all duration-300 ${activeLink === item.title ? "w-6 bg-[#0E6A4A]" : "w-0 bg-[#0E6A4A] group-hover:w-6"}`} />
                     </div>
+
+                    {/* Services Dropdown (Desktop) */}
+                    {item.title === "Services" && item.hasDropdown && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-400 transform origin-top -translate-y-4 group-hover:translate-y-0 flex flex-col p-3 gap-1 z-[100]">
+                        {serviceData.map((service) => (
+                          <Link 
+                            key={service.slug}
+                            to={`/services/${service.slug}`}
+                            onClick={() => setActiveLink("Services")}
+                            className="group/link px-5 py-4 text-[15px] font-semibold text-gray-700 hover:text-[#0E6A4A]  transition-all duration-300 flex items-center justify-start gap-4 w-full relative overflow-hidden"
+                          >
+                            {/* Hover Background Sweep */}
+                            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#F2FAF6] to-transparent -translate-x-full group-hover/link:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
+                            
+                            {/* Icon Wrapper for animation */}
+                            <div className="relative z-10 w-8 h-8 rounded bg-[#F2FAF6] group-hover/link:bg-[#0E6A4A] flex items-center justify-center transition-colors duration-300 shrink-0">
+                              <service.icon size={16} className="text-[#0E6A4A] group-hover/link:text-white transition-colors duration-300" />
+                            </div>
+                            
+                            {/* Text */}
+                            <span className="relative z-10 transform group-hover/link:translate-x-1 transition-transform duration-300">{service.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -141,21 +194,58 @@ const Navbar = () => {
           <ul className="flex flex-col justify-evenly h-full gap-4">
             {navLinks.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.href}
-                  onClick={() => { setActiveLink(item.title); setOpen(false); }}
-                  className={`flex items-center justify-center h-[50px] w-full rounded-xl text-xl font-bold transition-all duration-300 ${activeLink === item.title
-                    ? "text-[#0E6A4A] bg-[#D1DBD3]"
-                    : "text-gray-700 hover:text-[#0E6A4A] hover:bg-gray-50"
-                    }`}
-                >
-                  <div className="flex items-center justify-center gap-3">
-                    <span className={`w-2 h-2 rounded-full transition-all duration-300 ${activeLink === item.title ? "bg-[#0E6A4A] scale-125" : "bg-gray-300"
-                      }`} />
-                    {item.title}
-                    {item.hasDropdown && <ChevronDown size={18} strokeWidth={2.5} />}
+                {item.isRoute ? (
+                  <div className="flex flex-col w-full">
+                    <Link
+                      to={item.href}
+                      onClick={() => { setActiveLink(item.title); setOpen(false); }}
+                      className={`flex items-center justify-center h-[50px] w-full rounded-xl text-xl font-bold transition-all duration-300 ${activeLink === item.title
+                        ? "text-[#0E6A4A] bg-[#D1DBD3]"
+                        : "text-gray-700 hover:text-[#0E6A4A] hover:bg-gray-50"
+                        }`}
+                    >
+                      <div className="flex items-center justify-center gap-3">
+                        <span className={`w-2 h-2 rounded-full transition-all duration-300 ${activeLink === item.title ? "bg-[#0E6A4A] scale-125" : "bg-gray-300"
+                          }`} />
+                        {item.title}
+                        {item.hasDropdown && <ChevronDown size={18} strokeWidth={2.5} />}
+                      </div>
+                    </Link>
+                    
+                    {/* Mobile Services Dropdown */}
+                    {item.title === "Services" && item.hasDropdown && (
+                      <div className="flex flex-col gap-2 mt-2 px-4 border-l-2 border-[#0E6A4A]/20 ml-6 py-2">
+                        {serviceData.map((service) => (
+                          <Link 
+                            key={service.slug}
+                            to={`/services/${service.slug}`}
+                            onClick={() => { setActiveLink("Services"); setOpen(false); }}
+                            className="text-base font-semibold text-gray-600 hover:text-[#0E6A4A] py-1.5 flex items-center gap-2"
+                          >
+                            <service.icon size={16} />
+                            {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </a>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={() => { setActiveLink(item.title); setOpen(false); }}
+                    className={`flex items-center justify-center h-[50px] w-full rounded-xl text-xl font-bold transition-all duration-300 ${activeLink === item.title
+                      ? "text-[#0E6A4A] bg-[#D1DBD3]"
+                      : "text-gray-700 hover:text-[#0E6A4A] hover:bg-gray-50"
+                      }`}
+                  >
+                    <div className="flex items-center justify-center gap-3">
+                      <span className={`w-2 h-2 rounded-full transition-all duration-300 ${activeLink === item.title ? "bg-[#0E6A4A] scale-125" : "bg-gray-300"
+                        }`} />
+                      {item.title}
+                      {item.hasDropdown && <ChevronDown size={18} strokeWidth={2.5} />}
+                    </div>
+                  </a>
+                )}
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@ import ServiceCard from "./ServiceCard";
 import serviceData from "./serviceData";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -62,18 +63,19 @@ const Services = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-14 md:mt-16"
         >
-          <button
-            className="group bg-[#0E6A4A] h-[50px] w-[220px] hover:bg-[#09563C] text-white font-bold text-base md:text-lg rounded-xl flex items-center justify-center gap-3 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1"
+          <Link
+            to="/services"
+            className="group bg-[#0E6A4A] h-[50px] w-[220px] hover:bg-white border-2 border-[#0E6A4A] font-bold text-base md:text-lg rounded-xl flex items-center justify-center gap-3 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1"
           >
-            View All Services
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1.5">
+            <span className="font-bold text-white group-hover:text-[#0E6A4A] transition-colors duration-300">View All Services</span>
+            <div className="w-8 h-8 rounded-full bg-white group-hover:bg-[#0E6A4A] flex items-center justify-center transition-colors duration-300 group-hover:translate-x-1.5">
               <ChevronRight
                 size={18}
                 strokeWidth={3}
-                className="text-[#0E6A4A]"
+                className="text-[#0E6A4A] group-hover:text-white transition-colors duration-300"
               />
             </div>
-          </button>
+          </Link>
         </motion.div>
 
       </div>

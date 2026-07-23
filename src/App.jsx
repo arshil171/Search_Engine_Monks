@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import Brands from "./components/Brands/Brands";
-import Services from "./components/Services/Services";
-import WhyChooseUs from "./components/WhyChooseUs/WhyChoose";
-import Portfolio from "./components/Portfolio/Portfolio";
-import Testimonials from "./components/Testimonials/Testimonials";
-import FAQ from "./components/FAQ/FAQ";
-import CTA from "./components/Contact/CTA";
 import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
+import Home from "./Pages/Home.jsx";
+import ServicesPage from "./Pages/Services/ServicesPage";
+import ServiceDetail from "./Pages/Services/ServiceDetail";
 
-function App() {
+// ScrollToTop component to ensure pages start at the top when navigating
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+function AppContent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,28 +30,31 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
+      <ScrollToTop />
+      
+      <AnimatePresence mode="wait">
         {loading && <Loader key="loader" />}
       </AnimatePresence>
+     
 
-      <div className={loading ? "h-screen overflow-hidden" : ""}>
+      <div className="">
         <Navbar />
-        <main>
-          <Hero />
-          <div className="w-[100px] h-[100px] bg-transparent"></div>
-          <Brands />
-          <Services />
-          <WhyChooseUs />
-          <Portfolio />
-
-          <div className="w-[100px] h-[100px] bg-transparent"></div>
-          <Testimonials />
-          <FAQ />
-          <CTA />
-        </main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
+        </Routes>
         <Footer />
       </div>
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
